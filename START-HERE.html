@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Tharusha Portfolio — Setup and Publishing Guide</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style>
+  :root{color-scheme:light}html{scroll-behavior:smooth}body{max-width:980px;margin:0 auto;padding:50px 32px 80px;background:#f7f6f1;color:#263d37;font-family:Segoe UI,Arial,sans-serif;line-height:1.7;font-size:16px}h1{font-size:34px;line-height:1.2}h2{font-size:27px;margin-top:52px;padding-top:20px;border-top:1px solid #cdd7ca}h3{margin-top:32px}a{color:#165f56;text-underline-offset:3px}p,li{overflow-wrap:anywhere}pre{padding:18px;background:#183d3b;color:#f7f6f1;overflow:auto;border-radius:5px}code{font-family:Consolas,monospace;font-size:.9em}p code,li code,td code{background:#e4e9df;padding:2px 4px}table{display:block;width:100%;overflow-x:auto;border-collapse:collapse;margin:24px 0;font-size:14px}th,td{border:1px solid #cdd7ca;padding:12px;vertical-align:top;text-align:left}th{background:#e4e9df}nav#TOC{padding:20px 24px;background:#e8ecdf;border-left:3px solid #b68b45}nav#TOC ul{list-style:none;padding-left:16px}nav#TOC li{margin:6px 0}:focus-visible{outline:2px solid #9d6823;outline-offset:4px}@media(max-width:600px){body{padding:25px 18px;font-size:15px}h1{font-size:28px}h2{font-size:23px}}@media print{body{max-width:none;background:white;padding:0;font-size:11pt}nav#TOC{page-break-after:always}h2{page-break-before:always}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f1ed;color:#183d3b}table{display:table;font-size:9pt}a{color:inherit}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Tharusha Portfolio — Setup and Publishing Guide</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#your-portfolio-complete-windows-vs-code-github-and-vercel-guide"
+id="toc-your-portfolio-complete-windows-vs-code-github-and-vercel-guide">Your
+portfolio: complete Windows, VS Code, GitHub and Vercel guide</a>
+<ul>
+<li><a href="#before-you-begin" id="toc-before-you-begin">Before you
+begin</a></li>
+<li><a href="#part-a-install-the-software"
+id="toc-part-a-install-the-software">PART A — Install the
+software</a></li>
+<li><a href="#part-b-extract-and-run-the-website"
+id="toc-part-b-extract-and-run-the-website">PART B — Extract and run the
+website</a></li>
+<li><a href="#part-c-customize-the-portfolio"
+id="toc-part-c-customize-the-portfolio">PART C — Customize the
+portfolio</a></li>
+<li><a href="#part-d-test-before-publishing"
+id="toc-part-d-test-before-publishing">PART D — Test before
+publishing</a></li>
+<li><a href="#part-e-publish-source-to-a-new-github-repository"
+id="toc-part-e-publish-source-to-a-new-github-repository">PART E —
+Publish source to a NEW GitHub repository</a></li>
+<li><a href="#part-f-deploy-as-a-separate-vercel-project"
+id="toc-part-f-deploy-as-a-separate-vercel-project">PART F — Deploy as a
+SEPARATE Vercel project</a></li>
+<li><a href="#part-g-future-updates-and-maintenance"
+id="toc-part-g-future-updates-and-maintenance">PART G — Future updates
+and maintenance</a></li>
+<li><a href="#official-references" id="toc-official-references">Official
+references</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1
+id="your-portfolio-complete-windows-vs-code-github-and-vercel-guide">Your
+portfolio: complete Windows, VS Code, GitHub and Vercel guide</h1>
+<p>Prepared for <strong>Tharusha Pasan Hanwella</strong>. Use the final
+ZIP named <strong>Tharusha-Premium-BA-Portfolio-FINAL.zip</strong>. Your
+existing website and repositories have not been changed. Follow Parts
+A–D before deciding to publish in Parts E–F.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>A <strong>folder</strong> holds files. A <strong>terminal</strong> is
+a place to type commands. <strong>Node.js</strong> runs the
+development/build tools; <strong>npm</strong> installs their
+dependencies. <strong>Git</strong> records changes locally.
+<strong>GitHub</strong> stores the source online.
+<strong>Vercel</strong> builds that source into a website people can
+visit. A GitHub repository can be private while its Vercel website is
+public; these are separate settings.</p>
+<p>Only type the commands inside code blocks. Do not type the displayed
+prompt, for example <code>PS C:\...&gt;</code>. Run one command, wait
+for it to finish, then run the next. A server command keeps running
+until you press Ctrl+C. For all project commands below, use the VS Code
+terminal in the folder containing <code>package.json</code>, unless
+another location is explicitly stated.</p>
+<p>The new public URL does not exist yet. Any <code>YOUR_NEW_URL</code>
+or <code>YOUR_VERIFIED_GITHUB_EMAIL</code> text below is a placeholder
+you must replace. Your old <code>tharusha-one.vercel.app</code> address
+must not be used as the new site’s <code>SITE_URL</code>.</p>
+<h2 id="part-a-install-the-software">PART A — Install the software</h2>
+<h3 id="a1.-install-visual-studio-code">A1. Install Visual Studio
+Code</h3>
+<ol type="1">
+<li>Open Chrome or Edge. Go to <a
+href="https://code.visualstudio.com/">code.visualstudio.com</a>.</li>
+<li>Choose <strong>Download for Windows</strong>. Use the User Installer
+for your computer (usually x64; choose Arm64 only for an ARM
+laptop).</li>
+<li>Open the downloaded installer from Downloads. Follow its
+installation screens and accept the terms yourself if you agree.</li>
+<li>Keep <strong>Add to PATH</strong> selected if offered. The
+<strong>Open with Code</strong> options are useful but optional.</li>
+<li>Finish installation and open <strong>Visual Studio Code</strong>.
+This is different from the larger application named Visual Studio.</li>
+</ol>
+<h3 id="a2.-install-node.js">A2. Install Node.js</h3>
+<ol type="1">
+<li>Go to <a href="https://nodejs.org/en/download">nodejs.org</a>.</li>
+<li>Download the <strong>Node.js 24 LTS Windows Installer
+(.msi)</strong> matching your computer. This project was tested on Node
+24.22.1. It requires at least Node 22.12; Node 24 LTS is the
+straightforward matching choice.</li>
+<li>Run the installer. Keep <strong>npm package manager</strong> and
+<strong>Add to PATH</strong> enabled.</li>
+<li>Extra native-build tools are not required for this portfolio; you
+can leave optional automatic tool installation unchecked.</li>
+<li>Finish and close/reopen VS Code so its terminal receives the new
+PATH.</li>
+</ol>
+<h3 id="a3.-install-git">A3. Install Git</h3>
+<ol type="1">
+<li>Go to <a
+href="https://git-scm.com/download/win">git-scm.com/download/win</a>.</li>
+<li>Download the Windows installer and run it.</li>
+<li>Keep the recommended defaults, including Git available from the
+command line and third-party software. Keep Git Credential Manager
+enabled if offered.</li>
+<li>You may choose VS Code as Git’s default editor. Finish installation,
+then close/reopen VS Code.</li>
+</ol>
+<h3 id="a4.-verify-the-installations">A4. Verify the installations</h3>
+<p>In VS Code choose <strong>Terminal → New Terminal</strong>. If
+PowerShell prevents npm commands later, open the small arrow next to the
+terminal’s <code>+</code>, choose <strong>Select Default Profile →
+Command Prompt</strong>, then open a new terminal with <code>+</code>.
+You do not need to weaken Windows execution policies.</p>
+<p>Run each command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">--version</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--version</span></span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>What it does</th>
+<th>What success looks like</th>
+<th>If it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>node --version</code></td>
+<td>Checks Node installation.</td>
+<td>A version beginning with <code>v24.</code>.</td>
+<td>Reopen VS Code; if still “not recognized”, reinstall Node with PATH
+enabled.</td>
+</tr>
+<tr class="even">
+<td><code>npm --version</code></td>
+<td>Checks npm.</td>
+<td>A number such as <code>11.9.0</code>.</td>
+<td>Use Command Prompt if <code>npm.ps1</code> is blocked; otherwise
+repair Node installation.</td>
+</tr>
+<tr class="odd">
+<td><code>git --version</code></td>
+<td>Checks Git.</td>
+<td><code>git version ...windows...</code>.</td>
+<td>Reopen the terminal or reinstall Git with command-line access
+enabled.</td>
+</tr>
+<tr class="even">
+<td><code>code --version</code></td>
+<td>Checks the optional VS Code command.</td>
+<td>Version/commit/architecture lines.</td>
+<td>The app still works through its icon; reinstall with PATH enabled if
+you want this command.</td>
+</tr>
+</tbody>
+</table>
+<p>No GitHub or Vercel account is needed to run the website locally.</p>
+<h2 id="part-b-extract-and-run-the-website">PART B — Extract and run the
+website</h2>
+<h3 id="b1.-extract-the-zip-completely">B1. Extract the ZIP
+completely</h3>
+<ol type="1">
+<li>Download <strong>Tharusha-Premium-BA-Portfolio-FINAL.zip</strong>
+from the delivery message.</li>
+<li>In File Explorer, open Downloads. Right-click the ZIP and choose
+<strong>Extract All</strong>.</li>
+<li>Choose a local folder, for example
+<code>C:\Users\YOUR_WINDOWS_NAME\Documents\Portfolio</code>, then click
+<strong>Extract</strong>. Prefer a folder outside OneDrive if file locks
+cause problems.</li>
+<li>Open the extracted folder and then its <strong>ba-portfolio</strong>
+folder.</li>
+<li>Confirm you can see <code>package.json</code>,
+<code>package-lock.json</code>, <code>src</code>, <code>public</code>,
+<code>README.md</code> and <code>START-HERE.html</code>. If you see only
+another folder, open that folder first. Do not work inside File
+Explorer’s compressed ZIP view.</li>
+<li>Keep your downloaded ZIP as a backup somewhere outside the project
+folder.</li>
+</ol>
+<h3 id="b2.-open-the-correct-folder-in-vs-code">B2. Open the correct
+folder in VS Code</h3>
+<ol type="1">
+<li>Open VS Code.</li>
+<li>Choose <strong>File → Open Folder</strong>.</li>
+<li>Select the <strong>ba-portfolio</strong> folder that directly
+contains <code>package.json</code>.</li>
+<li>Click <strong>Select Folder</strong>. If Workspace Trust appears,
+review the files and trust the folder if appropriate; this lets VS
+Code’s development features run.</li>
+<li>The Explorer panel on the left should show the project files.
+Double-click <code>README.md</code> to read it. To see formatted
+Markdown, right-click the editor tab and choose <strong>Open
+Preview</strong>.</li>
+<li>Choose <strong>Terminal → New Terminal</strong>. The terminal path
+should end in <code>ba-portfolio</code>.</li>
+</ol>
+<p>To confirm the folder, run:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bat"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span></span></code></pre></div>
+<p><code>dir</code> lists files in the current folder. Success means
+<code>package.json</code> appears in the list. If it does not, use File
+→ Open Folder again; opening the right folder is easier than guessing
+<code>cd</code> paths.</p>
+<h3 id="b3.-install-the-dependencies">B3. Install the dependencies</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> ci</span></code></pre></div>
+<p>This reads <code>package-lock.json</code> and installs exactly the
+recorded dependencies into <code>node_modules</code>. Run it from the
+project folder with an internet connection. Success ends with an “added
+… packages”/audit summary and returns to the terminal prompt. It can
+take several minutes the first time. Do not close it while it is
+working.</p>
+<p><code>node_modules</code> is intentionally missing from the ZIP; this
+command recreates it. Do not upload that folder to GitHub. Warnings are
+not automatically failures; an <code>npm ERR!</code> message or nonzero
+exit is a failure. Read the first actual error. If npm says the lockfile
+and manifest disagree, restore matching <code>package.json</code> and
+<code>package-lock.json</code> from the ZIP; do not delete the lockfile
+as your first response.</p>
+<h3 id="b4.-start-the-development-server">B4. Start the development
+server</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code></pre></div>
+<p>This starts Vite. Success shows a <strong>Local</strong> URL,
+normally <code>http://localhost:5173/</code>. Hold Ctrl and click that
+URL in the terminal, or paste it into Chrome. If the port is already in
+use, Vite may show another port: use the actual printed URL.</p>
+<p>Keep this terminal open while viewing the site. Edits saved with
+<strong>Ctrl+S</strong> usually appear automatically. Do not open
+<code>index.html</code> directly from File Explorer; it is an input to
+Vite, not a standalone file website.</p>
+<h3 id="b5.-stop-and-restart">B5. Stop and restart</h3>
+<p>Click in the server terminal and press <strong>Ctrl+C</strong>. If
+Command Prompt asks “Terminate batch job (Y/N)?”, enter
+<strong>Y</strong>. The prompt returns. To restart, run
+<code>npm run dev</code> again. You do not need to reinstall
+dependencies on every restart.</p>
+<p>If you need another command while the server is running, open a
+second terminal with <strong>+</strong>, or stop the server first. A
+command typed into a running server’s terminal is not a new shell
+command.</p>
+<h2 id="part-c-customize-the-portfolio">PART C — Customize the
+portfolio</h2>
+<h3 id="c1.-safe-editing-basics">C1. Safe editing basics</h3>
+<ol type="1">
+<li>Open the file in the Explorer panel.</li>
+<li>Make one small change at a time.</li>
+<li>Save with Ctrl+S, check the browser and read any terminal
+errors.</li>
+<li>Keep commas, brackets and quotation marks intact. A missing comma
+can break a TypeScript data file.</li>
+<li>Before a large edit, copy the project to a backup folder outside the
+working project, or commit the working version with Git.</li>
+</ol>
+<h3
+id="c2.-personal-information-links-experience-skills-and-education">C2.
+Personal information, links, experience, skills and education</h3>
+<p>Open <strong>src → data → portfolio.ts</strong>.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>What to edit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Full name, short name, email, social URLs</td>
+<td>Values inside <code>profile</code>.</td>
+</tr>
+<tr class="even">
+<td>Introduction and About paragraphs</td>
+<td><code>profile.introduction</code> and
+<code>profile.about</code>.</td>
+</tr>
+<tr class="odd">
+<td>Role, employer, dates and responsibilities</td>
+<td><code>experience</code>.</td>
+</tr>
+<tr class="even">
+<td>Skill categories and names</td>
+<td><code>skills</code>.</td>
+</tr>
+<tr class="odd">
+<td>Qualifications, dates and institutions</td>
+<td><code>education</code>.</td>
+</tr>
+<tr class="even">
+<td>Listed certification areas</td>
+<td><code>certifications</code>. Add exact credentials only after
+checking them.</td>
+</tr>
+<tr class="odd">
+<td>Rotaract and working languages</td>
+<td><code>community</code>.</td>
+</tr>
+<tr class="even">
+<td>Menu labels</td>
+<td><code>navigation</code>; preserve IDs unless you also update section
+IDs.</td>
+</tr>
+</tbody>
+</table>
+<p>Some editorial text is deliberately in the page components: edit
+<strong>src/pages/Home.tsx</strong> for hero headings,
+current-study/current-work summaries and section introductions; edit
+<strong>src/components/Shared.tsx</strong> for the contact
+invitation/footer. The hero full name is currently literal text in
+Home.tsx as well as in profile data; update both if necessary. Edit
+<strong>src/entry-server.tsx</strong> if your homepage search
+description or position changes. The Person structured data’s job
+title/employer is in <strong>scripts/prerender.mjs</strong>.</p>
+<p>The contact mechanism is an email link. Changing
+<code>profile.email</code> updates the contact links and copy button.
+The résumé PDF is separate; update its email manually too. Social links
+open in new tabs; keep the full <code>https://...</code> URL.</p>
+<h3 id="c3.-edit-the-existing-projects">C3. Edit the existing
+projects</h3>
+<p>Open <strong>src → data → projects.ts</strong>. Each project object
+contains its title, summary, contribution, analysis, tools and
+deliverables. Keep the three existing <code>slug</code> values unless
+you intend to change their public URLs.</p>
+<ul>
+<li><code>overview</code>, <code>problem</code>,
+<code>objectives</code>: project context and goals.</li>
+<li><code>role</code>, <code>responsibilities</code>: your documented
+contribution.</li>
+<li><code>requirements</code>, <code>methods</code>,
+<code>design</code>, <code>deliverables</code>: analytical work.</li>
+<li><code>evidenceNote</code>: explains the evidence available.</li>
+<li><code>resources</code>: original documents/images to display when
+supplied.</li>
+<li><code>outcome</code> and <code>lessons</code>: optional; include
+only supported information.</li>
+</ul>
+<p>To add a fourth project, copy a complete project object, give it a
+unique slug/number, and fill all required fields. The homepage and
+prerender routes are generated from this array. Also update the route
+list in <strong>scripts/verify-build.mjs</strong>, which deliberately
+checks the delivered route set. Choose an existing <code>theme</code>
+(<code>auction</code>, <code>jobs</code> or <code>gas</code>) or
+implement a new illustration/style; do not claim a conceptual
+illustration is real project evidence.</p>
+<h3 id="c4.-add-project-diagrams-and-pdf-documents">C4. Add project
+diagrams and PDF documents</h3>
+<ol type="1">
+<li>In File Explorer, create <strong>public/project-assets</strong> if
+it is not present (empty folders may not survive ZIP/Git).</li>
+<li>Put your reviewed files there, for example
+<code>flash-stock-use-case.png</code> and
+<code>flash-stock-analysis.pdf</code>.</li>
+<li>Remove confidential details before copying the files. Everything in
+<code>public</code> is potentially public after deployment.</li>
+<li>In the relevant project object, replace <code>resources: []</code>
+with, for example:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>resources<span class="op">:</span> [</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    label<span class="op">:</span> <span class="st">&#39;Use Case diagram&#39;</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    href<span class="op">:</span> <span class="st">&#39;/project-assets/flash-stock-use-case.png&#39;</span><span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    type<span class="op">:</span> <span class="st">&#39;image&#39;</span><span class="op">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    alt<span class="op">:</span> <span class="st">&#39;Use Case diagram for the Flash Stock academic project&#39;</span><span class="op">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    caption<span class="op">:</span> <span class="st">&#39;Original project diagram, shared with permission.&#39;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    label<span class="op">:</span> <span class="st">&#39;Analysis document&#39;</span><span class="op">,</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    href<span class="op">:</span> <span class="st">&#39;/project-assets/flash-stock-analysis.pdf&#39;</span><span class="op">,</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    type<span class="op">:</span> <span class="st">&#39;document&#39;</span><span class="op">,</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    caption<span class="op">:</span> <span class="st">&#39;Reviewed public copy of the academic analysis document.&#39;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div>
+<p>These filenames are examples, not included deliverables. Only add the
+entries after adding the matching files. The URL begins with
+<code>/project-assets/</code>, <strong>not</strong>
+<code>/public/project-assets/</code>. Keep the comma following the array
+if another property follows it in the object.</p>
+<p>Use meaningful image descriptions. Keep filenames simple, lowercase
+and hyphenated. Match capitalization exactly: a path that works on
+Windows may fail on Vercel’s case-sensitive filesystem.</p>
+<h3 id="c5.-replace-the-portrait">C5. Replace the portrait</h3>
+<p>Current files are:</p>
+<ul>
+<li><code>public/images/tharusha-portrait.webp</code> — 960-pixel wide
+image.</li>
+<li><code>public/images/tharusha-portrait-480.webp</code> — 480-pixel
+wide image.</li>
+<li><code>public/images/tharusha-portrait.jpg</code> — JPEG
+fallback.</li>
+</ul>
+<p>The existing versions preserve your original photo and facial
+appearance; they only resize/compress it. To replace them, export your
+new portrait to all three filenames and keep a similar portrait aspect
+ratio. Update the width/height attributes in Home.tsx if you use a
+different ratio. Do not simply rename <code>.jpg</code> to
+<code>.webp</code>; the file must actually be encoded in that
+format.</p>
+<p>For a simpler one-JPEG approach: copy your new JPEG into
+<code>public/images</code>, set <code>profile.portraitFallback</code> to
+its path, then remove the <code>&lt;source .../&gt;</code> element
+inside the hero <code>&lt;picture&gt;</code> in Home.tsx. Otherwise
+WebP-capable browsers will continue selecting the old WebP image. Leave
+the <code>&lt;img&gt;</code> element and update its alt description if
+appropriate. Refresh with Ctrl+Shift+R after replacement.</p>
+<p>The share card is separate: replace
+<code>public/images/social-card.png</code> if you want to update its
+portrait/text too. Use a 1200 × 630 PNG.</p>
+<h3 id="c6.-replace-the-public-résumé">C6. Replace the public
+résumé</h3>
+<ol type="1">
+<li>Open <strong>public/documents/Tharusha-Hanwella-Resume.pdf</strong>
+and review both pages.</li>
+<li>Verify name, email, internship dates, qualifications and all claims.
+The supplied PDF is a résumé-only candidate prepared from your CV, not
+evidence of your final publication approval.</li>
+<li>To prepare your own version, open your résumé in Word or another
+editor. Remove the cover letter, residential address, private phone
+number, referees and their contact details, confidential client/software
+details, comments and tracked changes.</li>
+<li>Prefer exporting a fresh cleaned document to PDF. A black rectangle
+placed over text may leave selectable/searchable private text
+underneath.</li>
+<li>In Word choose <strong>File → Save As</strong> or <strong>Export →
+PDF</strong>. Use the exact filename
+<code>Tharusha-Hanwella-Resume.pdf</code> and replace the file in
+<code>public/documents</code>.</li>
+<li>Open the result, select/search text and inspect every page. Confirm
+only intended public information remains.</li>
+<li>Restart/rebuild if needed, then click <strong>Download CV</strong>
+and open the newly downloaded copy.</li>
+</ol>
+<p>If you change the filename, also update <code>profile.resume</code>
+in portfolio.ts and the download filename in <code>ResumeLink</code> in
+Shared.tsx. Update the PDF path in verify-build.mjs. The optional Python
+authoring script is not required: you can replace the PDF directly and
+build the website with Node alone.</p>
+<h3 id="c7.-change-colors-and-typography">C7. Change colors and
+typography</h3>
+<p>Open <strong>src/styles.css</strong>. The <code>@theme</code> block
+at the top defines paper <code>#f7f6f1</code>, ink <code>#202e2e</code>,
+teal <code>#183d3b</code> and gold <code>#b68b45</code>, plus the font
+families. Related section backgrounds/accents also use explicit colors
+further down; use Ctrl+F to find them if you want a coordinated palette
+change. Check contrast and focus visibility after editing.</p>
+<p>Fonts are self-hosted through imports in
+<strong>src/main.tsx</strong>. Changing only a CSS font name does not
+download a new font. To use a different font, install or provide its
+files and update those imports and the CSS family names together. This
+is optional; the current fonts are already included through npm and need
+no font-service account.</p>
+<h2 id="part-d-test-before-publishing">PART D — Test before
+publishing</h2>
+<h3 id="d1.-test-the-development-view">D1. Test the development
+view</h3>
+<p>Run <code>npm run dev</code> and open its Local URL. Check:</p>
+<ol type="1">
+<li>Your original portrait loads and the hero text is readable.</li>
+<li>Every navigation link reaches the correct section; the active
+indicator follows scrolling.</li>
+<li>Explore My Work reaches Projects. Each project opens a separate
+page.</li>
+<li>On each case study, check its nine sections, the contents links
+where displayed, next-project link and return link. Refresh the browser
+on a direct case-study URL.</li>
+<li>Click Download CV and open the downloaded PDF. Check that it is the
+new, public-safe version.</li>
+<li>Click GitHub and LinkedIn; verify the correct account/profile in the
+new tabs. A LinkedIn sign-in request is different from a broken
+URL.</li>
+<li>Click Write an email. Your configured email app should open with the
+correct recipient and subject; <strong>you</strong> review/send it. If
+no email app is configured, use Copy email and paste into your usual
+Gmail/Outlook compose window. Copy success does not mean an email was
+sent.</li>
+<li>Press Tab repeatedly, Shift+Tab to reverse and Enter to activate.
+You should see focus outlines. At the start of the page, the Skip to
+content link should appear when focused.</li>
+<li>In the mobile menu, verify opening, closing, Escape, keyboard focus
+containment and selecting each section.</li>
+</ol>
+<h3 id="d2.-check-mobile-and-tablet">D2. Check mobile and tablet</h3>
+<p>In your own Chrome, press <strong>F12</strong> or
+<strong>Ctrl+Shift+I</strong>, then click the phone/tablet icon or press
+<strong>Ctrl+Shift+M</strong>. Choose <strong>Responsive</strong> and
+try widths <strong>320, 390, 768, 1024 and 1440</strong>. Review the
+full homepage and all case studies, not only the hero. Look for
+horizontal scrolling, clipped words/buttons and overlapping content. The
+desktop navigation changes to the mobile menu below 1100 px. Browser
+emulation is helpful, but also check a real phone after deploying.</p>
+<p>For reduced motion, in Windows 11 open <strong>Settings →
+Accessibility → Visual effects → Animation effects: Off</strong>
+(Windows 10 uses Ease of Access/Display). Reload and verify that section
+navigation no longer animates. Restore your preferred setting afterward.
+The site has no continuously running decorative animations.</p>
+<h3 id="d3.-verify-the-production-build">D3. Verify the production
+build</h3>
+<p>Stop the development server with Ctrl+C if using the same terminal.
+Run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run typecheck</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run preview</span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Expected result</th>
+<th>What to do if it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>npm run typecheck</code></td>
+<td>No TypeScript diagnostics; returns to prompt.</td>
+<td>Open the named file/line; check missing commas, quotes and wrong
+value types. Undo the last edit if necessary.</td>
+</tr>
+<tr class="even">
+<td><code>npm run build</code></td>
+<td>Build output plus <code>Prerendered 5 pages</code> and
+<code>Build verified</code> (unless you deliberately added routes).</td>
+<td>Read the first error. Missing file: fix exact path/case. Compile
+error: fix source syntax/import. Then rebuild.</td>
+</tr>
+<tr class="odd">
+<td><code>npm run preview</code></td>
+<td>A Local URL, usually port 4173; command stays running.</td>
+<td>Build first. Use the printed port. If occupied, stop your previous
+preview.</td>
+</tr>
+</tbody>
+</table>
+<p>Open the preview URL and repeat the important checks. A production
+build creates real HTML pages in <code>dist</code>; it does not publish
+anything. <code>npm run verify</code> can check an existing dist again,
+but does not rebuild your edits. Never edit files in <code>dist</code>;
+they are replaced by the next build.</p>
+<p>The custom <code>/404.html</code> file can be reviewed directly. Also
+try an invented path such as <code>/this-page-does-not-exist/</code>.
+The included preview handler returns the custom page with HTTP 404.
+Verify it again on the deployed Vercel site because local preview is not
+proof of production-host routing.</p>
+<h3 id="d4.-common-local-errors">D4. Common local errors</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Message / symptom</th>
+<th>Meaning and fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>npm</code>/<code>node</code>/<code>git</code> “not
+recognized”</td>
+<td>Tool missing or terminal has old PATH. Reopen VS Code; repair the
+relevant installation if needed.</td>
+</tr>
+<tr class="even">
+<td><code>npm.ps1 cannot be loaded</code></td>
+<td>PowerShell policy is blocking the wrapper. Select Command Prompt as
+the VS Code terminal profile; keep the system policy unchanged.</td>
+</tr>
+<tr class="odd">
+<td><code>ENOENT ... package.json</code></td>
+<td>You opened the wrong directory. File → Open Folder → folder
+containing package.json.</td>
+</tr>
+<tr class="even">
+<td><code>npm ci</code> says lockfile mismatch</td>
+<td>Use matching package.json/package-lock.json from the final ZIP. If
+deliberately changing a dependency, use npm install to update the
+lockfile and then validate/build.</td>
+</tr>
+<tr class="odd">
+<td><code>EBADENGINE</code> / unsupported Node</td>
+<td>Run <code>node --version</code>, install Node 24 LTS, reopen VS Code
+and run npm ci.</td>
+</tr>
+<tr class="even">
+<td><code>Cannot find module</code> / unresolved import</td>
+<td>Run npm ci; if the error names a source file, check spelling/case
+and that the file is present.</td>
+</tr>
+<tr class="odd">
+<td><code>EACCES</code>, <code>EPERM</code>, file busy</td>
+<td>Stop servers, close programs locking files, use a normal user-owned
+local folder and retry. Avoid changing folder permissions blindly.</td>
+</tr>
+<tr class="even">
+<td>Network timeout, certificate or proxy error</td>
+<td>Check internet/date/time and any required workplace proxy. Do not
+disable TLS verification; use your administrator’s legitimate
+settings.</td>
+</tr>
+<tr class="odd">
+<td>Blank page from double-clicking index.html</td>
+<td>Start Vite and use its Local URL.</td>
+</tr>
+<tr class="even">
+<td>Browser says connection refused</td>
+<td>The server is stopped or the port differs. Check the running
+terminal.</td>
+</tr>
+<tr class="odd">
+<td>Old photo/CV still visible</td>
+<td>Update every image variant, check paths, use Ctrl+Shift+R and open a
+fresh downloaded PDF.</td>
+</tr>
+<tr class="even">
+<td>Email does not open</td>
+<td>Configure a default email app in Windows, or use Copy email and your
+webmail.</td>
+</tr>
+<tr class="odd">
+<td>Copy unavailable</td>
+<td>Clipboard access may require localhost/HTTPS and browser permission.
+Select the visible email address and copy it manually.</td>
+</tr>
+<tr class="even">
+<td>Low-level <code>uv_interface_addresses</code> error in a restricted
+environment</td>
+<td>Start <code>npm run dev -- --host 127.0.0.1</code> (or preview with
+the same flag). This binds only localhost. It is not normally needed on
+Windows.</td>
+</tr>
+</tbody>
+</table>
+<p>For the last troubleshooting command, run it from the same project
+terminal; success is the normal Local URL. Stop with Ctrl+C. Do not run
+the normal and alternative server at the same time on the same port.</p>
+<h2 id="part-e-publish-source-to-a-new-github-repository">PART E —
+Publish source to a NEW GitHub repository</h2>
+<p>Do this only when you are ready to upload the project. The delivered
+files have not been pushed for you.</p>
+<h3 id="e1.-create-the-empty-repository">E1. Create the empty
+repository</h3>
+<ol type="1">
+<li>Open <a href="https://github.com/">github.com</a> and sign in to
+<strong>Tharusha007</strong>.</li>
+<li>Click the <strong>+</strong> near the top-right, then <strong>New
+repository</strong>.</li>
+<li>Owner: <strong>Tharusha007</strong>. Repository name:
+<strong>ba-portfolio</strong>.</li>
+<li>Description:
+<code>Personal Business Analyst and IT portfolio for Tharusha Pasan Hanwella.</code></li>
+<li>Choose <strong>Private</strong> while reviewing if you prefer;
+choose Public only if you want the source publicly visible.</li>
+<li>Leave <strong>Add a README</strong>, <strong>Add .gitignore</strong>
+and <strong>Choose a license</strong> unchecked/None. The ZIP includes
+the needed README and ignore rules.</li>
+<li>Click <strong>Create repository</strong>. Leave the page open. The
+expected repository URL is
+<code>https://github.com/Tharusha007/ba-portfolio</code> only after you
+have created it.</li>
+<li>If that name is already used, stop and inspect that repository. Do
+not replace it. Choose a different new name and adjust the remote URL
+below.</li>
+</ol>
+<h3 id="e2.-initialize-git-locally-and-set-your-identity">E2. Initialize
+Git locally and set your identity</h3>
+<p>In VS Code’s project terminal:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="at">-b</span> main</span></code></pre></div>
+<p>This starts a new local history with branch <code>main</code>.
+Success says “Initialized empty Git repository …”. It does not upload
+files. If the folder already has Git history, inspect
+<code>git status</code> and <code>git remote -v</code> before changing
+anything; do not attach another project’s history.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.name <span class="st">&quot;Tharusha Pasan Hanwella&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config user.email <span class="st">&quot;YOUR_VERIFIED_GITHUB_EMAIL&quot;</span></span></code></pre></div>
+<p>These set the author identity for this repository only; success
+normally prints nothing. Replace the placeholder with your verified
+GitHub email. For privacy, copy your exact no-reply address from GitHub
+<strong>Settings → Emails</strong> instead. Do not invent the numeric
+part of a GitHub no-reply address. This email appears in commits; it is
+not a password. Git configuration does not sign you in.</p>
+<p>Check the saved values:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--get</span> user.name</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--get</span> user.email</span></code></pre></div>
+<p>Each prints its configured value. If blank or wrong, rerun the
+corresponding config command with the correct value.</p>
+<h3 id="e3.-stage-and-review-the-files">E3. Stage and review the
+files</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div>
+<p><code>git add .</code> stages the current folder’s non-ignored files
+for the next commit; success is usually silent. <code>git status</code>
+lists the staged files under “Changes to be committed.” Confirm source,
+configuration, public assets, documentation and package-lock.json are
+included. Confirm <code>node_modules</code>, <code>dist</code>,
+<code>.env</code>, original private CV/cover-letter files and backups
+are absent. <code>.gitignore</code> prevents ordinary accidental
+staging, but cannot remove files already tracked.</p>
+<p>If you accidentally staged a new private file before the first
+commit, run this after substituting its actual relative path:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> <span class="at">--</span> <span class="st">&quot;path/to/private-file&quot;</span></span></code></pre></div>
+<p>This removes that path from Git’s index, keeping the local file.
+Success prints <code>rm ...</code>; <code>git status</code> should no
+longer show it staged. Move the private file outside the project or add
+an ignore rule before staging again. Do not run this example without
+substituting the actual file path. If private data was already pushed,
+removing it from the latest commit does not erase its history; get help
+to clean the history and rotate any exposed credentials.</p>
+<h3 id="e4.-make-the-first-commit">E4. Make the first commit</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Add business analyst portfolio&quot;</span></span></code></pre></div>
+<p>This records a local snapshot. Success shows a commit ID and a file
+summary. If Git says “Author identity unknown”, complete E2. If it says
+“nothing to commit”, use git status: you may have already committed,
+forgotten to save edits, or opened the wrong folder.</p>
+<h3 id="e5.-connect-the-new-remote-and-push">E5. Connect the NEW remote
+and push</h3>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/Tharusha007/ba-portfolio.git</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div>
+<p>The first command records the upload destination, normally without
+output. The second prints origin’s fetch and push URLs. Both must point
+to your <strong>new</strong> repository. If you chose another name, use
+that name. If “remote origin already exists” appears, inspect the
+existing remote first. Only when you have verified that this is your new
+portfolio checkout and the URL is wrong, correct it with:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin https://github.com/Tharusha007/ba-portfolio.git</span></code></pre></div>
+<p>This changes the local destination only; success is silent. Run git
+remote -v again to verify. Never redirect an unrelated existing
+repository without understanding it.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div>
+<p>This uploads your commit and sets the default branch relationship for
+future pushes. Git Credential Manager may open a browser sign-in. Sign
+in yourself as Tharusha007 and follow GitHub’s prompts. Never paste
+passwords/tokens into source files or a remote URL. Normal account
+passwords are not used as Git HTTPS passwords.</p>
+<p>Success shows <code>main -&gt; main</code> and that main tracks
+origin/main. Open/refresh the repository page; you should see
+package.json, src, public and the rendered README. Run
+<code>git status</code> again: “working tree clean” means no uncommitted
+local changes, not independently proof of an upload; the GitHub page and
+push output verify that.</p>
+<h3 id="e6.-gitgithub-errors">E6. Git/GitHub errors</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Error</th>
+<th>Meaning / safe correction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>fatal: not a git repository</code></td>
+<td>Wrong folder or init not run. Open the project folder, then
+initialize only if it is genuinely new.</td>
+</tr>
+<tr class="even">
+<td><code>src refspec main does not match any</code></td>
+<td>Usually no first commit or different branch. Run git status and git
+branch; make the first commit. If this project’s branch is master,
+rename it using the command below.</td>
+</tr>
+<tr class="odd">
+<td><code>remote origin already exists</code></td>
+<td>A remote is configured. Inspect it, then use set-url only if
+appropriate.</td>
+</tr>
+<tr class="even">
+<td><code>Repository not found</code></td>
+<td>Repository not created, URL wrong, or signed into an account without
+access. Check the GitHub page, owner and credentials.</td>
+</tr>
+<tr class="odd">
+<td>Authentication failed / 403</td>
+<td>Confirm account access and use Git Credential Manager’s legitimate
+sign-in. Never put a token in code.</td>
+</tr>
+<tr class="even">
+<td>Non-fast-forward / rejected push</td>
+<td>Remote contains changes you do not have. Do not force-push. See Part
+G for pulling clean remote changes; for unrelated histories, keep a
+backup and use a fresh clone/copy workflow.</td>
+</tr>
+<tr class="odd">
+<td>LF will be replaced by CRLF</td>
+<td>Usually an informational Windows line-ending warning. It is not a
+failed commit; check git status.</td>
+</tr>
+</tbody>
+</table>
+<p>Useful branch commands, run only when the preceding error makes them
+necessary:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span></code></pre></div>
+<p><code>git branch</code> lists local branches and marks the current
+one with <code>*</code>. <code>git branch -M main</code> renames the
+current branch to main; success is silent. Use it only in this portfolio
+repository, then retry the push.</p>
+<h2 id="part-f-deploy-as-a-separate-vercel-project">PART F — Deploy as a
+SEPARATE Vercel project</h2>
+<h3 id="f1.-connect-and-import">F1. Connect and import</h3>
+<ol type="1">
+<li>Visit <a href="https://vercel.com/">vercel.com</a> and sign in to
+your Vercel account yourself.</li>
+<li>In the dashboard choose <strong>Add New → Project</strong>.</li>
+<li>Under Import Git Repository, connect GitHub if necessary. Review
+GitHub’s permission screen yourself; you can grant access only to the
+new <code>ba-portfolio</code> repository.</li>
+<li>Find <strong>Tharusha007/ba-portfolio</strong> and click
+<strong>Import</strong>. If it is absent, adjust the GitHub app’s
+repository access to include this new repository, then refresh.</li>
+<li>Choose a new project name, such as
+<strong>tharusha-ba-portfolio</strong>. Names may need to be unique for
+the resulting hostname.</li>
+<li>Do not open, delete, import over, or change the existing portfolio
+project/domain.</li>
+</ol>
+<h3 id="f2.-review-the-build-settings">F2. Review the build
+settings</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Value for this project</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Framework Preset</td>
+<td>Vite</td>
+</tr>
+<tr class="even">
+<td>Root Directory</td>
+<td><code>.</code> / repository root containing package.json</td>
+</tr>
+<tr class="odd">
+<td>Install Command</td>
+<td><code>npm ci</code></td>
+</tr>
+<tr class="even">
+<td>Build Command</td>
+<td><code>npm run build</code></td>
+</tr>
+<tr class="odd">
+<td>Output Directory</td>
+<td><code>dist</code></td>
+</tr>
+<tr class="even">
+<td>Node.js Version</td>
+<td>24.x</td>
+</tr>
+<tr class="odd">
+<td>Production Branch</td>
+<td>main</td>
+</tr>
+<tr class="even">
+<td>Required secrets/database</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><code>vercel.json</code> supplies most settings. If your repository
+unexpectedly contains an outer folder, select the inner directory
+containing package.json. The recommended Git instructions push the
+contents of ba-portfolio to the repository root, so you normally do not
+need an inner Root Directory.</p>
+<p>Click <strong>Deploy</strong> only when you are ready for this new
+website to be hosted. Wait for the build logs and the
+<strong>Ready</strong> result. If it fails, read the earliest relevant
+error rather than repeatedly redeploying unchanged files. Do not change
+the build command to plain <code>vite build</code>; that skips the
+case-study prerendering and verification scripts.</p>
+<h3 id="f3.-set-the-new-public-origin-for-seo">F3. Set the new public
+origin for SEO</h3>
+<ol type="1">
+<li>Copy the actual new production URL displayed by Vercel, for example
+a new project-specific <code>https://...vercel.app</code> address.</li>
+<li>In this <strong>new</strong> project’s <strong>Settings →
+Environment Variables</strong>, add name <strong>SITE_URL</strong> and
+value equal to that new origin (no project page path, no quotes). Select
+Production. Use Preview too only if you intentionally want preview
+builds canonicalized to production.</li>
+<li>Save. Open <strong>Deployments</strong>, choose the latest
+deployment’s menu and <strong>Redeploy</strong>, or push your next
+legitimate change.</li>
+<li>The build script uses this value for canonical links, absolute
+share-image URLs and sitemap.xml. It can also detect Vercel’s production
+URL automatically when supplied; setting SITE_URL makes your intent
+explicit.</li>
+<li>Do not use the old <code>https://tharusha-one.vercel.app/</code> URL
+here. SITE_URL is public configuration, not a secret.</li>
+</ol>
+<p>For local SEO testing, copy <code>.env.example</code> to
+<code>.env.local</code> in VS Code, add
+<code>SITE_URL=https://YOUR_NEW_URL</code> with your real origin, then
+rebuild. <code>.env.local</code> is ignored by Git. Normal local
+development needs no environment file.</p>
+<h3 id="f4.-verify-the-public-deployment">F4. Verify the public
+deployment</h3>
+<p>Open the exact new Vercel URL and repeat the Part D checks. In
+particular:</p>
+<ul>
+<li>Open each direct project URL and press Refresh.</li>
+<li>Download and review the résumé again.</li>
+<li>Check email/social links on your real device.</li>
+<li>Try an unknown route and confirm the custom 404. In Chrome Network
+tools, the document response should have status 404, not merely show a
+“404” heading with status 200.</li>
+<li>Open <code>/robots.txt</code>, <code>/sitemap.xml</code>,
+<code>/favicon.svg</code> and <code>/images/social-card.png</code> on
+the new domain.</li>
+<li>View Page Source and confirm the page-specific title, description,
+og:image and canonical use your new origin.</li>
+<li>Try a phone and another browser. Use an incognito window to check
+whether deployment protection requires sign-in; adjust access yourself
+according to your intended audience.</li>
+</ul>
+<p>A local build cannot prove live hosting, DNS, search indexing, email
+delivery, social preview caching or field Core Web Vitals. Those require
+the deployed site and real devices. There is no invented live link in
+this delivery.</p>
+<h3 id="f5.-automatic-deployments-and-the-existing-website">F5.
+Automatic deployments and the existing website</h3>
+<p>After connection, pushes to the configured production branch trigger
+a new Vercel build. Other branches may create preview deployments
+according to your settings. Watch the new project’s Deployments page and
+verify Ready before assuming an update is live.</p>
+<p>Your existing <code>tharusha-one.vercel.app</code> site remains
+independent. You do not need to move any domain to use the new site.
+Moving an existing custom domain or reassigning a project hostname is a
+separate later action: decide on that only after reviewing the new site
+and explicitly approving replacement. It is not performed by these
+instructions or this delivery.</p>
+<h2 id="part-g-future-updates-and-maintenance">PART G — Future updates
+and maintenance</h2>
+<h3 id="g1.-normal-update-sequence">G1. Normal update sequence</h3>
+<ol type="1">
+<li>Open your existing ba-portfolio folder in VS Code.</li>
+<li>If you are the only person editing on this computer, inspect git
+status before starting. If you edited remotely or on another computer,
+use the clean pull workflow below first.</li>
+<li>Run npm run dev. Edit source files and save. Check the affected
+content/layout.</li>
+<li>Stop the server or use another terminal. Run typecheck/build.</li>
+<li>Review, commit and push:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run typecheck</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Update portfolio content&quot;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>What it does / success</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>npm run typecheck</code></td>
+<td>Checks source types; no diagnostics is success.</td>
+</tr>
+<tr class="even">
+<td><code>npm run build</code></td>
+<td>Rebuilds and verifies production output; reports generated pages and
+verified references.</td>
+</tr>
+<tr class="odd">
+<td><code>git diff</code></td>
+<td>Shows unstaged line changes. If the pager fills the terminal, press
+<code>q</code> to exit. A blank diff may mean no changes or
+already-staged changes.</td>
+</tr>
+<tr class="even">
+<td><code>git status</code></td>
+<td>Shows changed/staged files and branch status. Confirm the list
+before adding.</td>
+</tr>
+<tr class="odd">
+<td><code>git add .</code></td>
+<td>Stages non-ignored changes; normally silent.</td>
+</tr>
+<tr class="even">
+<td><code>git commit -m "..."</code></td>
+<td>Saves your local snapshot; choose a short meaningful message
+describing the update.</td>
+</tr>
+<tr class="odd">
+<td><code>git push</code></td>
+<td>Uploads to the previously configured remote; look for main updating
+successfully.</td>
+</tr>
+</tbody>
+</table>
+<p>Open Vercel, wait for Ready and verify the new live content. Update
+the README’s live link after the first successful deployment. Keep the
+old ZIP backup until you have verified the newer version.</p>
+<h3 id="g2.-pull-changes-made-elsewhere">G2. Pull changes made
+elsewhere</h3>
+<p>From the project terminal, run:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div>
+<p>If there are local uncommitted edits, save and commit them or make a
+separate backup before trying to integrate other changes. When the
+working tree is clean:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="at">--ff-only</span></span></code></pre></div>
+<p>This downloads remote changes and updates only when Git can move
+forward without merging divergent histories. Success says “Already up to
+date” or shows a fast-forward summary. If it refuses because histories
+diverged, stop and inspect; do not force-push or discard work. If
+package files changed, run npm ci again before running/building.</p>
+<h3 id="g3.-recover-on-another-laptop">G3. Recover on another
+laptop</h3>
+<p>Install the tools from Part A. In a terminal opened in a parent
+folder where you want the project:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Tharusha007/ba-portfolio.git</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ba-portfolio</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> ci</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code></pre></div>
+<p><code>git clone</code> downloads the repository into a new
+ba-portfolio folder; private repositories require your authorized
+sign-in. <code>cd ba-portfolio</code> changes the terminal’s current
+folder (the prompt changes). The npm commands then install/run as
+before. If that folder already exists, do not overwrite it; choose a
+different parent folder. You can also extract your recovery ZIP instead
+of cloning.</p>
+<h3 id="g4.-manage-dependencies-carefully">G4. Manage dependencies
+carefully</h3>
+<p>Run npm ci after a fresh extraction/clone or when the lockfile
+changes. Do not reinstall on every content edit. Keep package-lock.json
+in Git. Do not upgrade every package automatically during a simple CV
+update.</p>
+<p>If you intentionally install a new dependency,
+<code>npm install PACKAGE_NAME</code> (replace the name with the real
+package) updates both package.json and package-lock.json; it should
+finish with a package summary. Review the changes, typecheck/build and
+test before committing. If a package is misspelled or unavailable, stop
+and verify its official name. No extra package is required for the
+delivered portfolio.</p>
+<h3 id="g5.-more-deployment-troubleshooting">G5. More deployment
+troubleshooting</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vercel cannot find package.json</td>
+<td>Root Directory must point to the folder containing it.</td>
+</tr>
+<tr class="even">
+<td>Local build works but Vercel import fails</td>
+<td>Confirm all source/assets/config/lockfile were pushed, exact
+filename case, Node 24.x and npm run build.</td>
+</tr>
+<tr class="odd">
+<td>Only homepage works</td>
+<td>Preserve the prerender step and all dist subfolders. Remove an
+accidental blanket SPA rewrite only after checking its purpose.</td>
+</tr>
+<tr class="even">
+<td>Wrong preview image/title</td>
+<td>Check SITE_URL, page source and actual social-card.png. Redeploy;
+third-party social caches may need refreshing separately.</td>
+</tr>
+<tr class="odd">
+<td>Update did not appear</td>
+<td>Confirm git push succeeded, correct repo/branch is connected, latest
+deployment Ready and you opened the new URL.</td>
+</tr>
+<tr class="even">
+<td>Build verification reports missing project document</td>
+<td>Add the real file or remove the premature resources entry; do not
+add a fake file merely to pass verification.</td>
+</tr>
+<tr class="odd">
+<td>CV still looks old</td>
+<td>Check the new file reached GitHub, deployment succeeded and you
+opened the latest downloaded file.</td>
+</tr>
+<tr class="even">
+<td><code>SITE_URL</code> build error</td>
+<td>Use a complete http/https origin, not a bare hostname or
+placeholder.</td>
+</tr>
+<tr class="odd">
+<td>Preview needs sign-in</td>
+<td>Check Vercel deployment protection/audience settings yourself. Do
+not assume a login requirement means a broken build.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="g6.-what-to-keep-backed-up">G6. What to keep backed up</h3>
+<p>Keep the final ZIP, an updated recovery ZIP, and your GitHub history.
+Back up original private source documents separately outside public/Git
+folders. The project needs source, configuration, package-lock.json,
+public assets and documentation; node_modules and dist can be
+regenerated. Keep a short note of what you changed and tested.</p>
+<h2 id="official-references">Official references</h2>
+<p>The guide’s workflow was checked against official documentation.
+Product labels can change; use the equivalent current option if the
+interface differs.</p>
+<ul>
+<li><a href="https://vite.dev/guide/">Vite guide</a> and <a
+href="https://vite.dev/guide/static-deploy.html">static
+deployment</a>.</li>
+<li><a
+href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github">GitHub:
+adding locally hosted code</a>.</li>
+<li><a href="https://vercel.com/docs/frameworks/frontend/vite">Vercel:
+Vite projects</a>.</li>
+<li><a href="https://code.visualstudio.com/docs/setup/windows">VS Code
+on Windows</a>, <a href="https://nodejs.org/en/download">Node
+downloads</a>, <a href="https://git-scm.com/download/win">Git
+downloads</a>.</li>
+</ul>
+</body>
+</html>
